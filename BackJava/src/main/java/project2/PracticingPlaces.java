@@ -27,7 +27,7 @@ public class PracticingPlaces {
 		OkHttpClient client = new OkHttpClient().newBuilder()
 		  .build();
 		Request request = new Request.Builder()
-		  .url("https://maps.googleapis.com/maps/api/place/queryautocomplete/json?input=pizza%20near%20par&language=fr&key=AIzaSyCIqctgJ3yzNRUTJv4Bmo1QY3T4VGMYpiw")
+		  .url("https://maps.googleapis.com/maps/api/place/queryautocomplete/json?input=pizza%20near%20par&language=fr&key=")
 		  .method("GET", null)
 		  .build();
 		Gson gson = new Gson();
