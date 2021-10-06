@@ -78,7 +78,7 @@ const Login = () => {
   return (
   <div className={styles.Login} data-testid="Login">
     <button onClick={()=>buttonHandler()}>Click Me!</button>
-    Login Component - alex wuz here
+    Login Component - alexx wuz here
   </div>
 )};
 
