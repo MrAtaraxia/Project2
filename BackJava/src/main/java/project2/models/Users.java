@@ -21,8 +21,8 @@ import project2.enums.USER_ROLES;
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Entity
 @Table(name="Users")
-@NamedQueries(  
-	    {  
+@NamedQueries(
+	    {
 	        @NamedQuery(
 	        name = "viewAllUsers", 
 	        query = "FROM Users s"),

@@ -1,13 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Login from './components/Login/Login';
+import Controller from './components/Controller/Controller';
 
 const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <Login/>
+        <Controller/>
       </header>
     </div>
   );
