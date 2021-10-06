@@ -22,6 +22,7 @@ public class UsersDaoImpl {
 	public static int version = 0;
 	
 	public UsersDaoImpl() {
+		HibernateUtil.loadSessionFactory();
 	}
 	
 	/*
@@ -118,16 +119,17 @@ public class UsersDaoImpl {
 		//Then we must start a transaction
 		Transaction tx = ses.beginTransaction();
 		//Use the session method .save() to write the object to our database
-		ses.save(euser);
 		//Commit the transaction
 		try {
+			ses.save(euser);
 			tx.commit();
 			version++;
 			return true;
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.getStackTrace();
 			return false;
+		} finally {
+			ses.close();
 		}
 	}
 	
@@ -137,15 +139,17 @@ public class UsersDaoImpl {
 	public Boolean update(Users euser) {
 		Session ses = HibernateUtil.getSession();
 		Transaction tx = ses.beginTransaction();
-		ses.update(euser);
+		System.out.println("SESSION OPEN?"+ses.isOpen());
 		try {
+			ses.update(euser);
 			tx.commit();
 			version++;
 			return true;
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.getStackTrace();
 			return false;
+		} finally {
+			ses.close();
 		}
 	}
 	
@@ -155,15 +159,16 @@ public class UsersDaoImpl {
 	public Boolean delete(Users euser) {
 		Session ses = HibernateUtil.getSession();
 		Transaction tx = ses.beginTransaction();
-		ses.delete(euser);
 		try {
+			ses.delete(euser);
 			tx.commit();
 			version++;
 			return true;
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.getStackTrace();
 			return false;
+		} finally {
+			ses.close();
 		}
 	}
 	
