@@ -3,10 +3,8 @@ import styles from './Controller.module.scss';
 import Login from '../Login/Login'
 import Nav from '../Pages/Nav';
 import Home from '../Pages/Home';
-import Addresses from '../Pages/Addresses';
-import AddressKeys from '../Pages/AddressKeys';
-import CreateKey from '../Pages/CreateKey';
-import InputAddress from '../Pages/InputAddress';
+import Reg from '../Registration/Registration';
+
 //import { combineReducers, createStore } from 'redux';
 //import { sessionReducer, sessionService } from 'redux-react-session';
 const Controller = (props:any) =>  {
@@ -30,10 +28,7 @@ const Controller = (props:any) =>  {
   let pageList = [
     "Login", 
     "Home",
-    "Addresses",
-    "AddressKeys",
-    "CreateKey",
-    "InputAddress"
+    "Registration"
   ];
   if(nextPage==="undefined" || nextPage === undefined){
     //if(nextPage in pageList){
@@ -61,11 +56,8 @@ const Controller = (props:any) =>  {
   
   let pages = [
     "Home",
-    "Addresses",
-    "AddressKeys",
-    "CreateKey",
-    "InputAddress",
-    "Login"
+    "Login",
+    "Registration"
   ]
   let theNav = 
     <Nav 
@@ -117,6 +109,14 @@ const Controller = (props:any) =>  {
     <div>
       {theNav}
       <InputAddress></InputAddress>
+    </div>
+  }
+  else if(page==="Registration"){
+    toDisplay = 
+    <div>
+      {Nav}
+      <Reg onclick={nextPageHandler} 
+      nextPage="EHome"></Reg>
     </div>
   }
   else{

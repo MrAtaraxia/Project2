@@ -23,7 +23,7 @@ const MHome = (props:any) => {
                                 <div className="wrap-home3-form-btn ">
                                     <div className="home3-form-bgbtn ">
                                     </div>
-                                    <button className="home3-form-btn" onClick={()=>propsClick(nextPage)}>
+                                        <button className="home3-form-btn" onClick={()=>propsClick(nextPage)}>
 								            Button Because Button!
 							            </button>
                                 </div>
