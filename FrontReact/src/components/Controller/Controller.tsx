@@ -2,16 +2,8 @@ import React, {useState, useCallback} from 'react';
 import styles from './Controller.module.scss';
 import Login from '../Login/Login'
 import ValidateForm from '../Login/Input/ValidateForm'
-import MNav from '../Pages/MNav';
-import MHome from '../Pages/MHome';
-import MRequests from '../Pages/MRequests';
-import MListUsers from '../Pages/MListUsers';
-import MCreateUser from '../Pages/MCreateUser';
-import ENav from '../Pages/ENav';
-import EHome from '../Pages/EHome';
-import EReimbursementForm from '../Pages/EReimbursementForm';
-import EListReimbursements from '../Pages/EListReimbursements';
-import EAccountInformation from '../Pages/EAccountInformation';
+import Nav from '../Pages/Nav';
+import Home from '../Pages/Home';
 //import { combineReducers, createStore } from 'redux';
 //import { sessionReducer, sessionService } from 'redux-react-session';
 const Controller = (props:any) =>  {
@@ -36,25 +28,10 @@ const Controller = (props:any) =>  {
   
   let pageList = [
     "Login", 
-    "MHome", 
-    "MListUsers",
-    "MRequests",
-    "MCreateUser",
-    "EHome", 
-    "EReimbursementForm",
-    "EListReimbursements",
-    "EAccountInformation"
+    "Home"
   ];
-  
-  if(nextPage==="home"){
-    if(userInfo.role==="MANAGER"){
-      setNextPage("MHome");
-    }else{
-      setNextPage("EHome");
-    }
-  }
 
-  if(nextPage!=="none" && nextPage!=="home"){
+  if(nextPage!=="none" ){
       //if(nextPage in pageList){
       console.log("SETTING PAGE FROM NEXT PAGE:"+ nextPage);
 
@@ -73,31 +50,15 @@ const Controller = (props:any) =>  {
       ))}
     </span>
   
-  let managerPages = [
-    "MHome", 
-    "MListUsers",
-    "MRequests",
-    "MCreateUser",
+  let pages = [
+    "Home",
     "Login"
   ]
-  let employeePages = [
-    "EHome", 
-    "EReimbursementForm",
-    "EListReimbursements",
-    "EAccountInformation",
-    "Login"
-  ]
-  let managerNav = 
-    <MNav 
+  let theNav = 
+    <Nav 
     onclick={nextPageHandler} 
-    nextPages={managerPages}
-    ></MNav>
-    let employeeNav = <div>
-    <ENav 
-    onclick={nextPageHandler} 
-    nextPages={employeePages}
-    ></ENav>
-  </div>
+    nextPages={pages}
+    ></Nav>
   if(page==="Login"){
     toDisplay =     
     <div>
@@ -109,69 +70,12 @@ const Controller = (props:any) =>  {
       ></Login>
     </div>
   }  
-  else if(page==="MHome"){
+  else if(page==="Home"){
     toDisplay = 
     <div>
-      {managerNav}
-      <MHome onclick={nextPageHandler} 
-      nextPage="EHome"></MHome>
-    </div>
-  }
-  else if(page==="MListUsers"){
-    toDisplay = 
-    <div>
-      {managerNav}
-      <MListUsers 
-      onclick={nextPageHandler} 
-      nextPage="MHome"></MListUsers>
-    </div>
-  }
-  else if(page==="MRequests"){
-    toDisplay = 
-    <div>
-      {managerNav}
-      <MRequests 
-      onclick={nextPageHandler} 
-      nextPage="MHome"></MRequests>
-    </div>
-  }
-  else if(page==="MCreateUser"){
-    toDisplay = 
-    <div>
-      {managerNav}
-      <MCreateUser 
-      onclick={nextPageHandler} 
-      nextPage="MHome"></MCreateUser>
-    </div>
-  }
-  else if(page==="EHome"){
-    toDisplay = 
-    <div>
-      {employeeNav}
-      <EHome 
-      onclick={nextPageHandler} 
-      nextPage="MHome"></EHome>
-    </div>
-  }
-  else if(page==="EReimbursementForm"){
-    toDisplay = 
-    <div>
-    {employeeNav}
-      <EReimbursementForm nextPage="EHome"></EReimbursementForm>
-    </div>
-  }
-  else if(page==="EListReimbursements"){
-    toDisplay = 
-    <div>
-    {employeeNav}
-      <EListReimbursements nextPage="EHome"></EListReimbursements>
-    </div>
-  }
-  else if(page==="EAccountInformation"){
-    toDisplay = 
-    <div>
-    {employeeNav}
-      <EAccountInformation nextPage="EHome"></EAccountInformation>
+      {Nav}
+      <Home onclick={nextPageHandler} 
+      nextPage="EHome"></Home>
     </div>
   }
   else{

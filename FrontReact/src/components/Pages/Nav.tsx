@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import icon from '../../assets/img/favicons/favicon-32x32.png';
 import './Style.scss'
-import styles from './MNav.module.scss';
+import styles from './Nav.module.scss';
 
 const MNav = (props:any) => {
     const [collapse, setCollapse] = useState(false)
