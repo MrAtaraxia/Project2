@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import icon from '../../assets/img/favicons/favicon-32x32.png';
 import './Style.scss'
 import styles from './Nav.module.scss';
 
@@ -7,11 +6,11 @@ const MNav = (props:any) => {
     const [collapse, setCollapse] = useState(false)
     const propsClick = props.onclick;
     const home = props.nextPages[0];
-    const MListUsers = props.nextPages[1];
-    const MRequests = props.nextPages[2];
-    const MCreateUser = props.nextPages[3];
-    const Login = props.nextPages[4];
-    const logout = props.logout;
+    const Addresses = props.nextPages[1];
+    const AddressKeys = props.nextPages[2];
+    const CreateKey = props.nextPages[3];
+    const InputAddress = props.nextPages[4];
+    const Login =props.nextPages[5];
     
     const navbarCollapse = () => {
         collapse? setCollapse(false):setCollapse(true);
@@ -21,15 +20,16 @@ const MNav = (props:any) => {
         Collapsable = <div className="collapse navbar-collapse" id="navbarCollapse">
                         <ul className="navbar-nav me-auto mb-2 mb-md-0">
                             <li className="nav-item">
-                                <button className="nav-link txt3" onClick={()=>propsClick(MRequests)}>Requests</button>
+                                <button className="nav-link txt3" onClick={()=>propsClick(Addresses)}>Addresses</button>
                             </li>
                             <li className="nav-item">
-                                <button className="nav-link txt3" onClick={()=>propsClick(MListUsers)}>View Employees</button>
+                                <button className="nav-link txt3" onClick={()=>propsClick(AddressKeys)}>View Keys</button>
                             </li>
                             <li className="nav-item">
-                                <button className="nav-link txt3" onClick={()=>propsClick(MCreateUser)}>Create Employee</button>
+                                <button className="nav-link txt3" onClick={()=>propsClick(CreateKey)}>Create Key</button>
                             </li>
                             <li className="nav-item">
+                                <button className="nav-link txt3" onClick={()=>propsClick(InputAddress)}>Input Address</button>
                             </li>
                             <li className="nav-item">
                                 <button className="icon " onClick={()=>navbarCollapse()}></button>
@@ -43,15 +43,16 @@ const MNav = (props:any) => {
         Collapsable = <div className="collapse navbar-collapse show" id="navbarCollapse">
                         <ul className="navbar-nav me-auto mb-2 mb-md-0">
                             <li className="nav-item">
-                                <button className="nav-link txt3" onClick={()=>propsClick(MRequests)}>Requests</button>
+                                <button className="nav-link txt3" onClick={()=>propsClick(Addresses)}>Addresses</button>
                             </li>
                             <li className="nav-item">
-                                <button className="nav-link txt3" onClick={()=>propsClick(MListUsers)}>View Employees</button>
+                                <button className="nav-link txt3" onClick={()=>propsClick(AddressKeys)}>View Keys</button>
                             </li>
                             <li className="nav-item">
-                                <button className="nav-link txt3" onClick={()=>propsClick(MCreateUser)}>Create Employee</button>
+                                <button className="nav-link txt3" onClick={()=>propsClick(CreateKey)}>Create Key</button>
                             </li>
                             <li className="nav-item">
+                                <button className="nav-link txt3" onClick={()=>propsClick(InputAddress)}>Input Address</button>
                             </li>
                             <li className="nav-item">
                                 <button className="icon " onClick={()=>navbarCollapse()}></button>
@@ -67,7 +68,7 @@ const MNav = (props:any) => {
             <div className="MNav">
                 <nav className="navbar navbar-expand-sm navbar-light bg-light nav-home3 mb-4">
                     <div className="container-fluid">
-                        <button className="navbar-brand" onClick={()=>propsClick(home)}><img src={icon} alt="blue"/></button>
+                        <button className="navbar-brand" onClick={()=>propsClick(home)}>A</button>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" 
                         data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="true" 
                         aria-label="Toggle navigation" onClick={()=>navbarCollapse()}>

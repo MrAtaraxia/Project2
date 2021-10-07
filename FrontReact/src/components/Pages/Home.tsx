@@ -14,7 +14,7 @@ const MHome = (props:any) => {
                         <form className="home3-form validate-form ">
                             <span className="text-center home3-form-title ">
 						        <p className="toBeStyled" >
-                                    Manager Homepage </p>
+                                    Homepage </p>
 					        </span>
                             <span className="home3-form-title p-b-48 ">
 						        <i className="zmdi zmdi-font "></i>

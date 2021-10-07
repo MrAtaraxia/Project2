@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Login.module.scss';
 import axios from 'axios';
-import Input from './Input/Input';
 
 const Login = (props:any) => {
   const nextPageHandler = props.nextPageHandler;
@@ -74,15 +73,13 @@ const Login = (props:any) => {
               <div className="login3-form validate-form">
                 <span className="login3-form-title p-b-46">Welcome
                 </span>
-                <Input 
+                <input 
                 value={userName}
-                element="words" 
-                changed={nameChangeHandler} />
+                onChange={nameChangeHandler} />
                 <span className="focus-input3a" data-placeholder="User"></span>  
-                <Input 
+                <input 
                 value={userPass} 
-                element="password" 
-                changed={passChangeHandler}/>                    
+                onChange={passChangeHandler}/>                    
                 <span className="focus-input3a" data-placeholder="Password"></span>                  
                 </div>
                 <div className="container-home3-form-btn">

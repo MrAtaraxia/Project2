@@ -1,9 +1,12 @@
 import React, {useState, useCallback} from 'react';
 import styles from './Controller.module.scss';
 import Login from '../Login/Login'
-import ValidateForm from '../Login/Input/ValidateForm'
 import Nav from '../Pages/Nav';
 import Home from '../Pages/Home';
+import Addresses from '../Pages/Addresses';
+import AddressKeys from '../Pages/AddressKeys';
+import CreateKey from '../Pages/CreateKey';
+import InputAddress from '../Pages/InputAddress';
 //import { combineReducers, createStore } from 'redux';
 //import { sessionReducer, sessionService } from 'redux-react-session';
 const Controller = (props:any) =>  {
@@ -11,12 +14,10 @@ const Controller = (props:any) =>  {
   const [nextPage, setNextPage] = useState("none");
   const [userInfo, setUserInfo] = useState({
     "id":"",
-    "uname":"",
-    "pass":"",
-    "fname":"",
-    "lname":"",
-    "email":"",
-    "role":""
+    "Username":"",
+    "FirstName":"",
+    "LastName":"",
+    "Email":"",
   });
 
 
@@ -28,10 +29,18 @@ const Controller = (props:any) =>  {
   
   let pageList = [
     "Login", 
-    "Home"
+    "Home",
+    "Addresses",
+    "AddressKeys",
+    "CreateKey",
+    "InputAddress"
   ];
-
-  if(nextPage!=="none" ){
+  if(nextPage==="undefined" || nextPage === undefined){
+    //if(nextPage in pageList){
+    setNextPage("none");
+  //}
+}
+  if(nextPage!=="none" && nextPage!==undefined && nextPage!=="undefined"){
       //if(nextPage in pageList){
       console.log("SETTING PAGE FROM NEXT PAGE:"+ nextPage);
 
@@ -52,6 +61,10 @@ const Controller = (props:any) =>  {
   
   let pages = [
     "Home",
+    "Addresses",
+    "AddressKeys",
+    "CreateKey",
+    "InputAddress",
     "Login"
   ]
   let theNav = 
@@ -73,19 +86,46 @@ const Controller = (props:any) =>  {
   else if(page==="Home"){
     toDisplay = 
     <div>
-      {Nav}
+      {theNav}
       <Home onclick={nextPageHandler} 
-      nextPage="EHome"></Home>
+      nextPage="Home"></Home>
+    </div>
+  }
+  else if(page==="Addresses"){
+    toDisplay = 
+    <div>
+      {theNav}
+      <Addresses></Addresses>
+    </div>
+  }
+  else if(page==="AddressKeys"){
+    toDisplay = 
+    <div>
+      {theNav}
+      <AddressKeys></AddressKeys>
+    </div>
+  }
+  else if(page==="CreateKey"){
+    toDisplay = 
+    <div>
+      {theNav}
+      <CreateKey ></CreateKey>
+    </div>
+  }
+  else if(page==="InputAddress"){
+    toDisplay = 
+    <div>
+      {theNav}
+      <InputAddress></InputAddress>
     </div>
   }
   else{
-    toDisplay = <div></div>
+    toDisplay = <div><button onClick={()=>nextPageHandler("Home")}></button></div>
   }
 
   return(
     
     <div className={styles.Controller} data-testid="Controller">
-      {Buttons}Controller
       {toDisplay}
     </div>
   );
