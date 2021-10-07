@@ -24,8 +24,13 @@ public class UserServiceImpl implements UserService{
 		if(uname == null || pass == null) {
 			return null;
 		}
-		Integer toReturn = uDao.selectByUnamePass(uname, pass).getUserID();
-		return toReturn;
+		Users tempUser = uDao.selectByUnamePass(uname, pass);
+		if(tempUser==null) {
+			return null;
+		} else {
+			Integer toReturn = tempUser.getUserID();
+			return toReturn;
+		}
 	}
 
 	@Override

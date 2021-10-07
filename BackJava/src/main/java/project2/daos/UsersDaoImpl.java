@@ -95,14 +95,14 @@ public class UsersDaoImpl {
 	    List<Predicate> predicates = new ArrayList<Predicate>();
 
 	    //Adding predicates in case of parameter not being null
-	    predicates.add(qb.equal(root.get("ERS_USERNAME"), Uname));
-	    predicates.add(qb.equal(root.get("ERS_PASSWORD"), Pass));
+	    predicates.add(qb.equal(root.get("Username"), Uname));
+	    predicates.add(qb.equal(root.get("Password"), Pass));
 	    //query itself
 	    q.select(root).where(predicates.toArray(new Predicate[]{}));
 	    //execute query and do something with result
 	    
 		List<Users> usersList = ses.createQuery(q).getResultList();
-		System.out.println("SELECT USER BY USERNAME AND PASSWORD:" +usersList);
+		System.out.println("SELECT USER BY Username AND Password:" +usersList);
 		try {
 		return usersList.get(0);
 		}catch(IndexOutOfBoundsException e) {

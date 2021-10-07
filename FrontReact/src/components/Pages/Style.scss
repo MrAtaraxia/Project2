@@ -1,0 +1,44 @@
+.EHome {
+    width: 60%;
+    margin: auto;
+    border: 2px #ddd;
+    box-shadow: 0 2px 3px #999;
+    padding: 16px;
+    text-align: center;
+}
+
+.bg-light.nav-home3 {
+    backgroundColor: red;
+}
+
+.MNav {
+    backgroundColor: red;
+}
+
+.bg-light {
+    background-color: red;
+}
+
+.toCenter {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.toBeStyled {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 5vh;
+}
+
+.theStyleUsed {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.theStyleUsed2 {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
