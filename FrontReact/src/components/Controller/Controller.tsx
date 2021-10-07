@@ -79,7 +79,7 @@ const Controller = (props:any) =>  {
     </div>
   }
   else{
-    toDisplay = <ValidateForm></ValidateForm>
+    toDisplay = <div></div>
   }
 
   return(
